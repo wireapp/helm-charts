@@ -1,0 +1,2 @@
+# See defaults in https://docs.k8ssandra.io/reference/helm-chart/k8ssandra-operator
+#k8ssandra-operator:
