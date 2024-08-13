@@ -1,0 +1,4 @@
+apiVersion: v1
+description: Wrapper chart for keycloakx
+name: keycloakx
+version: 2.3.0
