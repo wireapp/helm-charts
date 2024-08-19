@@ -1,5 +1,6 @@
 nginx:
   existingServerBlockConfigmap: "smallstep-accomp-server-block"
+  cors_allow_origin: ""
 
   service:
     type: ClusterIP
@@ -11,21 +12,17 @@ nginx:
     # hostname: "acme.alpha.example.com"
     path: "/proxyCrl"
     pathType: "Prefix"
-      
+
     # extraTls: 
     #   - 
     #     hosts: [ "acme.alpha.example.com" ]
     #     secretName: "smallstep-step-certificates-ingress-cert"
-    
-    # annotations:
-    #     nginx.ingress.kubernetes.io/cors-allow-origin: https://webapp.acme.alpha.example.com
-    #     nginx.ingress.kubernetes.io/cors-expose-headers: Replay-Nonce, Location
-    #     nginx.ingress.kubernetes.io/enable-cors: 'true'
+
 
 upstreams:
   enabled: true
   # dnsResolver: 9.9.9.9
-  
+
   # Note: include the smallstep host of the own domain here as well
   proxiedHosts: []
   # proxiedHosts: 
