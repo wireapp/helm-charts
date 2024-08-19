@@ -40,7 +40,7 @@ own domain is `acme.alpha.example.com` this helm chart will forward requests
 | `nginx.ingress.enable`     | Set to `false` if you need to define a custom ingress for the /proxyCrl endpoint. Make sure CORS is set.  |
 | `nginx.ingress.hostname`   | Hostname of the step-ca server                                                                            |
 | `nginx.ingress.extraTls`   | The TLS configuration                                                                                     |
-| `nginx.ingress.annotations`| CORS config for the ingress, set the hostname of the step-ca server here                                  |
+| `nginx.cors_allow_origin`  | Set the allowed CORS origin here                                                                          |
 
 For more details on `nginx.*` parameters see README.md documentation in the `nginx` dependency chart.
 
