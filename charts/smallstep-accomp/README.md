@@ -27,7 +27,8 @@ The Helm chart deploys a nginx server that reverse-proxies
 `https://<nginx.ingress.hostname>/proxyCrl/<other_acme_domain>` to `https://{other_acme_domain}/crl`
 as well as an ingress for the `/proxyCrl` endpoint. For example if `upstreams.proxiedHosts` is set
 to `[acme.alpha.example.com, acme.beta.example.com]` and the host for the Smallstep server on the
-own domain is `acme.alpha.example.com` this helm chart will forward requests
+own domain is `acme.alpha.example.com` this helm chart will forward requests.
+Note you must manually restart the nginx pod after any configuration changes!
 
 - `https://acme.alpha.example.com/proxyCrl/acme.alpha.example.com` to `https://acme.alpha.example.com/crl`
 - `https://acme.alpha.example.com/proxyCrl/acme.beta.example.com` to `https://acme.beta.example.com/crl`
@@ -40,7 +41,7 @@ own domain is `acme.alpha.example.com` this helm chart will forward requests
 | `nginx.ingress.enable`     | Set to `false` if you need to define a custom ingress for the /proxyCrl endpoint. Make sure CORS is set.  |
 | `nginx.ingress.hostname`   | Hostname of the step-ca server                                                                            |
 | `nginx.ingress.extraTls`   | The TLS configuration                                                                                     |
-| `nginx.cors_allow_origin`  | Set the allowed CORS origin here                                                                          |
+| `cors_allow_origin`      | List of strings. Set the allowed CORS origins |
 
 For more details on `nginx.*` parameters see README.md documentation in the `nginx` dependency chart.
 
