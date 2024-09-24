@@ -41,7 +41,7 @@ Note you must manually restart the nginx pod after any configuration changes!
 | `nginx.ingress.enable`     | Set to `false` if you need to define a custom ingress for the /proxyCrl endpoint. Make sure CORS is set.  |
 | `nginx.ingress.hostname`   | Hostname of the step-ca server                                                                            |
 | `nginx.ingress.extraTls`   | The TLS configuration                                                                                     |
-| `cors_allow_origin`      | List of strings. Set the allowed CORS origins |
+| `cors_allow_origin`        | List of strings. Set the allowed CORS origins. Example `["https://example.com"]`                          |
 
 For more details on `nginx.*` parameters see README.md documentation in the `nginx` dependency chart.
 
