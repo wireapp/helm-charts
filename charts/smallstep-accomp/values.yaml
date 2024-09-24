@@ -1,6 +1,5 @@
 nginx:
   existingServerBlockConfigmap: "smallstep-accomp-server-block"
-  cors_allow_origin: ""
 
   service:
     type: ClusterIP
@@ -18,6 +17,7 @@ nginx:
     #     hosts: [ "acme.alpha.example.com" ]
     #     secretName: "smallstep-step-certificates-ingress-cert"
 
+cors_allow_origins: []
 
 upstreams:
   enabled: true

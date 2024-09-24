@@ -11,6 +11,13 @@ data:
   server.conf: |
     resolver {{ .Values.upstreams.dnsResolver }};
 
+    map $http_origin $cors_allow_origin {
+        default "";
+        {{- range $i, $origin := $.Values.cors_allow_origins}}
+        "~^{{$origin}}$" "$http_origin";
+        {{end}}
+    }
+
     server {
       listen 0.0.0.0:8080;
 
@@ -32,11 +39,18 @@ data:
         add_header Expires '0';
 
         # CORS settings
-        add_header 'Access-Control-Allow-Origin' '{{ $.Values.nginx.cors_allow_origin }}';
+        proxy_hide_header 'Access-Control-Allow-Origin';
+        proxy_hide_header 'Access-Control-Expose-Headers';
+        proxy_hide_header 'Access-Control-Allow-Credentials';
+        proxy_hide_header 'Access-Control-Allow-Methods';
+        proxy_hide_header 'Access-Control-Allow-Headers';
+        {{if $.Values.cors_allow_origins -}}
+        add_header 'Access-Control-Allow-Origin' $cors_allow_origin;
         add_header 'Access-Control-Expose-Headers' 'Replay-Nonce, Location';
         add_header 'Access-Control-Allow-Credentials' 'true';
         add_header 'Access-Control-Allow-Methods' 'GET, PUT, POST, DELETE, PATCH, OPTIONS';
         add_header 'Access-Control-Allow-Headers' 'DNT,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range,Authorization';
+        {{- end }}
 
         proxy_pass "https://$backend/crl";
       }
