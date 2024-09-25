@@ -30,6 +30,7 @@ upstreams:
   #   - acme.beta.example.com
   #   - acme.gamma.example.com
 
+stepFullName: smallstep-step-certificates
 
 caPassword:
   enabled: true

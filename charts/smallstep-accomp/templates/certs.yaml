@@ -2,7 +2,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: smallstep-step-certificates-certs
+  name: {{ include "step-certificates.fullname" . }}-certs
   labels:
       chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
       release: "{{ .Release.Name }}"
