@@ -7,7 +7,7 @@ This Helm chart provides:
 
 - A reverse-proxy for Certificate Revocation List (CR) distribution endpoints to federating smallstep
   servers
-- Smallstep server configuration for the End-to-End Identity setup
+- Configuration for the smallstep server for the End-to-End Identity setup
 
 
 ## Reverse-proxy for CRL distribution points
@@ -90,7 +90,7 @@ For references see:
 | `stepConfig.authority.acme.oidc.transform`           | See [2]. Has sensible default. There shouldn't be any need to customize this setting.                                             |
 | `stepConfig.authority.acme.x509.organization`        | Set this to the federation domain of the backend                                                                                  |
 | `stepConfig.authority.acme.x509.template`            | See [2]. Go template for a client certificate which is evaluated by step-ca.                                                      |
-|                                                      | This string is evaluated as template of the Helm chart first.                                                                     |
+|                                                      | This string is evaluated as a template of the Helm chart first.                                                                     |
 |                                                      | Has a sensible default. There shouldn't be a need to customize this setting.                                                      |
 
 | Parameter             | Description                                                                                           |

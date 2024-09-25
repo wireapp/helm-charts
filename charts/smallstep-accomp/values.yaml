@@ -108,8 +108,8 @@ stepConfig:
         minTLSCertDuration: 60s
 
       dpop:
-        # key: <base64 string>
         wireDomain: alpha.example.com
+        # key: <base64 string>
 
       oidc:
         clientId: wireapp
