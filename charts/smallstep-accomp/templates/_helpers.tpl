@@ -1,3 +1,3 @@
-{{- define "fullname" -}}
-smallstep-step-certificates
+{{- define "step-certificates.fullname" -}}
+{{- .Values.stepFullName -}}
 {{- end -}}

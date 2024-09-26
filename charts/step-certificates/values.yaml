@@ -1,5 +1,5 @@
 # Default values for step-certificates
-#https://github.com/smallstep/helm-charts/blob/master/step-certificates/values.yaml
+# https://github.com/smallstep/helm-charts/blob/master/step-certificates/values.yaml
 step-certificates:
   image:
     repository: cr.step.sm/smallstep/step-ca

@@ -30,6 +30,7 @@ upstreams:
   #   - acme.beta.example.com
   #   - acme.gamma.example.com
 
+stepFullName: smallstep-step-certificates
 
 caPassword:
   enabled: true
@@ -107,8 +108,8 @@ stepConfig:
         minTLSCertDuration: 60s
 
       dpop:
-        # key: <base64 string>
         wireDomain: alpha.example.com
+        # key: <base64 string>
 
       oidc:
         clientId: wireapp

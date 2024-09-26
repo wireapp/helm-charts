@@ -11,10 +11,12 @@ data:
   server.conf: |
     resolver {{ .Values.upstreams.dnsResolver }};
 
+    map_hash_bucket_size 128;
+
     map $http_origin $cors_allow_origin {
         default "";
         {{- range $i, $origin := $.Values.cors_allow_origins}}
-        "~^{{$origin}}$" "$http_origin";
+        "{{$origin}}" "$http_origin";
         {{end}}
     }
 

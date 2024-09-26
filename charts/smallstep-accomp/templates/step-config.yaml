@@ -2,7 +2,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: smallstep-step-certificates-config
+  name: {{ include "step-certificates.fullname" . }}-config
 data:
   ca.json: |-
     {{(tpl .Values.stepConfig.configTemplate .) | fromYaml | toJson }}
